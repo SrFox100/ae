@@ -1,0 +1,193 @@
+html {
+    image-rendering: pixelated;
+    text-rendering: pixelated;
+}
+::selection {
+    background-color: rgba(0, 122, 255, 0.5);
+    color: invert(1);
+}
+:root {
+    --groovycolor: black;
+    --groovycolor2: white;
+}
+body {
+    background-image: repeating-linear-gradient(to right, #9cf, #f9c, #ec8, #7eb, #9cf);
+    background-size: 400% 100%;
+    animation: slide 30s linear infinite;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    font-size: 40px;
+}
+h2 {
+    font-size: 36px;
+}
+p {
+    font-size: 28px;
+}
+a {
+    font-size: 28px;
+    color: #9cf;
+}
+hr {
+    border: none;
+    height: 16px;
+    background-size: 400% 400%;
+    background: repeating-linear-gradient(to left, #9cf, #f9c, #ec8, #7eb, #9cf);
+    animation: hr 4s linear infinite;
+}
+marquee {
+    width: 800px;
+    border: 4px solid;
+    border-image-source: repeating-linear-gradient(to left, #9cf, #f9c, #ec8, #7eb, #9cf);
+    border-image-slice: 1;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-size: 28px;
+    box-shadow: rgba(0, 0, 0, 0.4) 4px 4px 3px 3px;
+    transition: 0.8s ease-in-out;
+}
+button {
+    font-size: 28px;
+    border-image-source: repeating-linear-gradient(to left, #9cf, #f9c, #ec8, #7eb, #9cf);
+    border-image-slice: 1;
+    background-color: blue;
+    color: white;
+}
+button:hover {
+    border: dashed 2px;
+}
+button:active {
+    background-color: #3c3cff;
+}
+button[tooltip] {
+    position: relative;
+}
+button[tooltip]:hover::after {
+    content: attr(tooltip);
+    position: absolute;
+    font-size: 16px;
+    bottom: 110%;
+    left: 50%;
+    width: fit-content;
+    min-width: 160px;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 2px ridge white;
+    padding: 3px;
+}
+@keyframes hr {
+    to {
+        background-position: 3200px 0;
+    }
+}
+@keyframes slide {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 400% 0;
+    }
+}
+@keyframes slide2 {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(var(--aeslide));
+    }
+}
+.box {
+    position: relative;
+    border: 4px solid;
+    border-image-source: repeating-linear-gradient(to left, #9cf, #f9c, #ec8, #7eb, #9cf);
+    border-image-slice: 1;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    transition: 0.8s ease-in-out;
+    z-index: 10;
+    min-width: 800px;
+    width: fit-content;
+    box-shadow: rgba(0, 0, 0, 0.4) 4px 4px 3px 3px;
+}
+.tower {
+    position: fixed;
+    rotate: 90deg;
+    font-size: 64px;
+    animation: slide2 1s linear infinite;
+    z-index: -10;
+}
+.box:hover {
+    letter-spacing: 16px;
+}
+.leader {
+    position: relative;
+    font-size: 512px;
+    color: gray;
+    animation: groovy 6s linear infinite;
+}
+ul {
+    list-style-type: none;
+}
+@keyframes groovy {
+    from {
+        text-shadow:
+            4px -4px 0 var(--groovycolor),
+            3px -3px 0 var(--groovycolor),
+            2px -2px 0 var(--groovycolor),
+            1px -1px 0 var(--groovycolor),
+            -4px 4px 0 var(--groovycolor2),
+            -3px 3px 0 var(--groovycolor2),
+            -2px 2px 0 var(--groovycolor2),
+            -1px 1px 0 var(--groovycolor2);
+    }
+    25% {
+        text-shadow:
+            -4px -4px 0 var(--groovycolor2),
+            -3px -3px 0 var(--groovycolor2),
+            -2px -2px 0 var(--groovycolor2),
+            -1px -1px 0 var(--groovycolor2),
+            4px 4px 0 var(--groovycolor),
+            3px 3px 0 var(--groovycolor),
+            2px 2px 0 var(--groovycolor),
+            1px 1px 0 var(--groovycolor);
+    }
+    50% {
+        text-shadow:
+            -4px 4px 0 var(--groovycolor),
+            -3px 3px 0 var(--groovycolor),
+            -2px 2px 0 var(--groovycolor),
+            -1px 1px 0 var(--groovycolor),
+            4px -4px 0 var(--groovycolor2),
+            3px -3px 0 var(--groovycolor2),
+            2px -2px 0 var(--groovycolor2),
+            1px -1px 0 var(--groovycolor2);
+    }
+    75% {
+        text-shadow:
+            4px 4px 0 var(--groovycolor2),
+            3px 3px 0 var(--groovycolor2),
+            2px 2px 0 var(--groovycolor2),
+            1px 1px 0 var(--groovycolor2),
+            -4px -4px 0 var(--groovycolor),
+            -3px -3px 0 var(--groovycolor),
+            -2px -2px 0 var(--groovycolor),
+            -1px -1px 0 var(--groovycolor);
+    }
+    to {
+        text-shadow:
+            4px -4px 0 var(--groovycolor),
+            3px -3px 0 var(--groovycolor),
+            2px -2px 0 var(--groovycolor),
+            1px -1px 0 var(--groovycolor),
+            -4px 4px 0 var(--groovycolor2),
+            -3px 3px 0 var(--groovycolor2),
+            -2px 2px 0 var(--groovycolor2),
+            -1px 1px 0 var(--groovycolor2);
+    }
+}
